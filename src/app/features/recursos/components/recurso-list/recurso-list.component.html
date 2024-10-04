@@ -1,21 +1,26 @@
-<div *ngFor="let recurso of recursos">
-    <p>{{ recurso.Titulo }} - {{ recurso.Autores }}</p>
-    <button (click)="editarRecurso(recurso)">Editar</button>
-    <button (click)="eliminarRecurso(recurso.ID_Recurso)">Eliminar</button>
-  </div>
+  <div id="container_list">
+    <q>
+    <div *ngFor="let recurso of recursos" id="container_father">
+      <p>{{ recurso.Titulo }} - {{ recurso.Autores }}</p>
+      <button (click)="editarRecurso(recurso)">Editar</button>
+      <button (click)="eliminarRecurso(recurso.ID_Recurso)">Eliminar</button>
+    </div>
+    
+    <div *ngIf="recursoSeleccionado" id="container_editar">
+      <h3>Editar Recurso</h3>
+      <form (ngSubmit)="actualizarRecurso()" id="form_update">
+        <input [(ngModel)]="recursoSeleccionado.Titulo" name="Titulo" required />
+        <input [(ngModel)]="recursoSeleccionado.Tipo_documento" name="Tipo_documento" required />
+        <input [(ngModel)]="recursoSeleccionado.Autores" name="Autores" required />
+        <input [(ngModel)]="recursoSeleccionado.Fecha_Publicacion" type="date" name="Fecha_Publicacion" required />
+        <input [(ngModel)]="recursoSeleccionado.Resumen" name="Resumen" required />
+        <input [(ngModel)]="recursoSeleccionado.Idioma" name="Idioma" required />
+        <input [(ngModel)]="recursoSeleccionado.Numero_Paginas" type="number" name="Numero_Paginas" required /> <br>
+        <button type="submit">Actualizar</button>
+        <button (click)="recursoSeleccionado = null">Cancelar</button>
+      </form>
+    </div>
+  </q>
+</div>
   
-  <div *ngIf="recursoSeleccionado">
-    <h3>Editar Recurso</h3>
-    <form (ngSubmit)="actualizarRecurso()">
-      <input [(ngModel)]="recursoSeleccionado.Titulo" name="Titulo" required />
-      <input [(ngModel)]="recursoSeleccionado.Tipo_documento" name="Tipo_documento" required />
-      <input [(ngModel)]="recursoSeleccionado.Autores" name="Autores" required />
-      <input [(ngModel)]="recursoSeleccionado.Fecha_Publicacion" type="date" name="Fecha_Publicacion" required />
-      <input [(ngModel)]="recursoSeleccionado.Resumen" name="Resumen" required />
-      <input [(ngModel)]="recursoSeleccionado.Idioma" name="Idioma" required />
-      <input [(ngModel)]="recursoSeleccionado.Numero_Paginas" type="number" name="Numero_Paginas" required />
-      <button type="submit">Actualizar</button>
-      <button (click)="recursoSeleccionado = null">Cancelar</button>
-    </form>
-  </div>
   

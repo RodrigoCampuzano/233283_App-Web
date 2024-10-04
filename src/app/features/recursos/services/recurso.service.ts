@@ -21,8 +21,8 @@ export class RecursoService {
   createRecurso(recurso: FormData): Observable<any> {
     return this.http.post<any>(this.apiUrl, recurso);
   }
-  updateRecurso(id: number, recurso: Recurso): Observable<Recurso> {
-    return this.http.put<Recurso>(`${this.apiUrl}/${id}`, recurso);
+  updateRecurso(id: number, recurso: Recurso): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, recurso);
   }
   deleteUserid(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
