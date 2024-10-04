@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosModule } from './features/usuarios/usuarios.module';
@@ -17,7 +17,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AppRoutingModule,
     UsuariosModule,
     RecursosModule,
-    SolicitudesModule
+    SolicitudesModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
