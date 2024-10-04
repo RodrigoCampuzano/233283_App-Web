@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './recurso-form.component.css'
 })
 export class RecursoFormComponent {
-
+  valueTitulo = '';
+  valueTipo = '';
+  valueAutor = '';
+  valueFecha = '';
+  valueResumen = '';
+  valueIdioma = '';
+  valueCantPag = '';
+  valueFile = 'Documento';
 }

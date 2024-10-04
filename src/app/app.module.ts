@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UsuariosModule } from './features/usuarios/usuarios.module';
 import { RecursosModule } from './features/recursos/recursos.module';
 import { SolicitudesModule } from './features/solicitudes/solicitudes.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SolicitudesModule } from './features/solicitudes/solicitudes.module';
     SolicitudesModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,13 @@
+#container_form-father{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 90%;
+}
+
+#title_formulario{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    line-height: 27px;
+}

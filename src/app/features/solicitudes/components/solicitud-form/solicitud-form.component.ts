@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './solicitud-form.component.css'
 })
 export class SolicitudFormComponent {
-
+  valueTitulo = '';
+  valueTipo = '';
+  valueAutor = '';
+  valueFecha = '';
+  valueResumen = '';
+  valueIdioma = '';
+  valueCantPag = '';
+  valueFile = 'Documento';
 }
