@@ -1,0 +1,13 @@
+<form [formGroup]="recurseForm" (ngSubmit)="onSubmit()">
+  <div id="container_form">
+    <input formControlName="Titulo" placeholder="Título">
+    <input formControlName="Tipo_documento" placeholder="Tipo de Documento">
+    <input formControlName="Autores" placeholder="Autores">
+    <input formControlName="Fecha_Publicacion" placeholder="Fecha de Publicación">
+    <textarea formControlName="Resumen" placeholder="Resumen"></textarea>
+    <input formControlName="Idioma" placeholder="Idioma">
+    <input formControlName="Numero_Paginas" placeholder="Numero_Paginas">
+    <input formControlName="Archivo" placeholder="Archivo">  
+    <button type="submit">Enviar</button>
+  </div>
+</form>
