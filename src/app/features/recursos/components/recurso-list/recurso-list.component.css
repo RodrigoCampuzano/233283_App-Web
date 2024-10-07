@@ -1,0 +1,25 @@
+#container_father{
+    border: 2px solid black;
+    width: 90%;
+}
+
+#container_editar{
+    border: 2px solid black;
+    width: 100%;
+    height: 250px;  
+    display: flex;
+    flex-direction: column; 
+}
+
+#form_update{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container_list{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+}
