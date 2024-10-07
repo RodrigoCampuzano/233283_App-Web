@@ -3,15 +3,17 @@ const sql = require("../config/db.config.js");
 // Constructor del modelo Ventas
 const Solicitud = function(solicitud) {
   this.IDSolicitud = solicitud.IDSolicitud;
-  this.IDUsuario = solicitud.IDUsuario;
-  this.IDRecurso = solicitud.IDRecurso
-  this.IDRevisor = solicitud.IDRevisor;
-  this.Fecha_Solicitud = solicitud.Fecha_Solicitud;
-  this.Motivo_Solicitud = solicitud.Motivo_Solicitud;
+  this.IDInvestigador = solicitud.IDInvestigador || null;
+  this.IDRecurso = solicitud.IDRecurso || null;
+  this.IDRevisor = solicitud.IDRevisor || null;
+  this.FechaSolicitud = solicitud.FechaSolicitud;
+  this.MotivoSolicitud = solicitud.MotivoSolicitud;
   this.Estado = solicitud.Estado;
-  this.FechaEntrega = solicitud.FechaEntrega;
-  this.ComentariosAdicionales = solicitud.ComentariosAdicionales;
+  this.FechaEntrega = solicitud.FechaEntrega || null;
+  this.ComentariosAdicionales = solicitud.ComentariosAdicionales || null;
 };
+
+
 
 Solicitud.create = (newSolicitud, result) => {
   sql.query("INSERT INTO Solicitud SET ?", newSolicitud, (err, res) => {
@@ -54,8 +56,8 @@ Solicitud.findById = (id, result) => {
 
 Solicitud.updateById = (id, solicitud, result) => {
   sql.query(
-    "UPDATE Solicitud SET IDSolicitud = ?, ID_Usuario = ?, ID_Recurso = ?, Fecha_Solicitud = ?, Motivo_Solicitud = ?, Estado = ?, Comentraios = ? WHERE IDSolicitud = ?",
-    [solicitud.IDSolicitud, solicitud.ID_Usuario, solicitud-ID_Recurso, solicitud.Fecha_Solicitud, solicitud.Motivo_Solicitud, solicitud.Estado, solicitud.Comentarios, id],
+    "UPDATE Solicitud SET IDInvestigador = ?, IDRecurso = ?, IDRevisor = ?, FechaSolicitud = ?, MotivoSolicitud = ?, Estado = ?, FechaEntrega = ?, ComentariosAdicionales = ? WHERE IDSolicitud = ?",
+    [solicitud.IDInvestigador, solicitud.IDRecurso, solicitud.IDRevisor, solicitud.FechaSolicitud, solicitud.MotivoSolicitud, solicitud.Estado, solicitud.FechaEntrega, solicitud.ComentariosAdicionales, id],
     (err, res) => {
       if (err) {
         console.error("Error al actualizar la Solicitud con ID:", id, err);

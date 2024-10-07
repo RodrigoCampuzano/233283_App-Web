@@ -1,13 +1,9 @@
-#container_form-father{
-    display: flex;
-    flex-direction: column;
+#container_list{
     margin: 20px;
     width: 90%;
-}
-
-#title_solicitud{
-    font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    line-height: 27px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
 }

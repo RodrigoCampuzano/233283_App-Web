@@ -30,8 +30,11 @@ export class RecursoListComponent implements OnInit {
 
   editarRecurso(recurso: Recurso) {
     this.recursoSeleccionado = { ...recurso };
+    if (this.recursoSeleccionado.FechaPublicacion) {
+      this.recursoSeleccionado.FechaPublicacion = new Date(this.recursoSeleccionado.FechaPublicacion).toISOString().substring(0, 10);
+    }
   }
-
+  
   eliminarRecurso(id: number) {
     this.recursoService.deleteUserid(id).subscribe(
       () => {
@@ -45,8 +48,8 @@ export class RecursoListComponent implements OnInit {
 
   actualizarRecurso() {
     if (this.recursoSeleccionado) {
-      console.log("Datos a actualizar:", this.recursoSeleccionado); // Log de datos
-      this.recursoService.updateRecurso(this.recursoSeleccionado.ID_Recurso, this.recursoSeleccionado)
+      console.log("Datos a actualizar:", this.recursoSeleccionado);
+      this.recursoService.updateRecurso(this.recursoSeleccionado.IDRecurso, this.recursoSeleccionado)
         .subscribe(
           () => {
             this.cargarRecursos();
@@ -58,5 +61,6 @@ export class RecursoListComponent implements OnInit {
         );
     }
   }
+  
   
 }

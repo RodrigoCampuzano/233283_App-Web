@@ -81,7 +81,7 @@ Recurso.updateById = (id, recurso, result) => {
 
 
 Recurso.remove = (id, result) => {
-  sql.query("DELETE FROM Recuso WHERE IDRecurso = ?", id, (err, res) => {
+  sql.query("DELETE FROM Recurso WHERE IDRecurso = ?", id, (err, res) => {
     if (err) {
       console.log("Error al eliminar Recurso: ", err);
       result(null, err);

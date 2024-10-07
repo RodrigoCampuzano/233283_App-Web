@@ -1,13 +1,19 @@
 <form [formGroup]="recurseForm" (ngSubmit)="onSubmit()">
   <div id="container_form">
     <input formControlName="Titulo" placeholder="Título">
-    <input formControlName="Tipo_documento" placeholder="Tipo de Documento">
+    <select id="Tipos" formControlName="TipoRecurso">
+      <option value="Artículo">Artículo</option>
+      <option value="Tesis">Tesis</option>
+      <option value="Libro">Libro</option>
+      <option value="Informe">Informe</option>
+    </select>
     <input formControlName="Autores" placeholder="Autores">
-    <input formControlName="Fecha_Publicacion" placeholder="Fecha de Publicación">
+    <input formControlName="FechaPublicacion" type="date" max="2024-12-31">
     <textarea formControlName="Resumen" placeholder="Resumen"></textarea>
     <input formControlName="Idioma" placeholder="Idioma">
-    <input formControlName="Numero_Paginas" placeholder="Numero_Paginas">
-    <input formControlName="Archivo" placeholder="Archivo">  
+    <input formControlName="NumeroPaginas" placeholder="Numero_Paginas">
+    <input formControlName="Archivo" placeholder="Archivo">
+    <input formControlName="IDInvestigador" placeholder="1">
     <button type="submit">Enviar</button>
   </div>
 </form>

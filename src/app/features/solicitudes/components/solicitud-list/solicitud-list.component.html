@@ -1,1 +1,18 @@
-<p>solicitud-list works!</p>
+<div id="container_list">
+    <div *ngFor="let solicitud of solicitud" id="container_father">
+      <p>{{ solicitud.FechaSolicitud }} - {{ solicitud.MotivoSolicitud }} - {{solicitud.Estado}}</p>
+      <button (click)="editarSolicitudes(solicitud)">Editar</button>
+      <button (click)="eliminarSolicitudes(solicitud.IDSolicitud)">Eliminar</button>
+    </div>
+    
+    <div id="container_editar" *ngIf="solicitudSeleccionado">
+      <h3>Editar Recurso</h3>
+      <form (ngSubmit)="actualizarSolicitudes()" id="form_update">
+        <input [(ngModel)]="solicitudSeleccionado.MotivoSolicitud" name="MotivoSolicitud" required /><br>
+        <button type="submit">Actualizar</button>
+        <button type="button" (click)="solicitudSeleccionado = null">Cancelar</button>
+      </form>
+    </div>    
+</div>
+  
+  
