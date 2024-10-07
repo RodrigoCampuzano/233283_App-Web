@@ -26,6 +26,8 @@ app.get('/api/data', (req, res) => {
 
 require('./app/routes/Recurso.routes')(app);
 require('./app/routes/Solicitud.routes')(app)
+require('./app/routes/Revisor.routes')(app)
+require('./app/routes/Investigador.routes')(app)
 
 
 const PORT = process.env.PORT || 8080;

@@ -8,13 +8,15 @@ exports.create = (req, res) => {
   }
 
   const solicitud = new Solicitud({
-    ID_Solicitud: req.body.ID_Solicitud,
-    ID_Usuario: req.body.ID_Usuario,
-    ID_Recurso: req.body.ID_Recurso,
-    Fecha_Solicitud: req.body.Fecha_Solicitud,
-    Motivo_Solicitud: req.body.Motivo_Solicitud,
+    IDSolicitud: req.body.IDSolicitud,
+    IDInvestigador: req.body.IDInvestigador,
+    IDRecurso: req.body.IDRecurso,
+    IDRevisor: req.body.IDRevisor,
+    FechaSolicitud: req.body.FechaSolicitud,
+    MotivoSolicitud: req.body.MotivoSolicitud,
     Estado: req.body.Estado,
-    Comentarios: req.body.Comentarios
+    FechaEntrega: req.body.FechaEntrega,
+    ComentariosAdicionales: req.body.ComentariosAdicionales
   });
 
   Solicitud.create(solicitud, (err, data) => {

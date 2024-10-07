@@ -1,20 +1,20 @@
 const sql = require("../config/db.config.js");
 
 const Recurso = function(recurso) {
-  this.ID_Recurso = recurso.ID_Recurso;
+  this.IDRecurso = recurso.IDRecurso;
   this.Titulo = recurso.Titulo;
-  this.Tipo_documento = recurso.Tipo_documento;
+  this.TipoRecurso = recurso.TipoRecurso;
   this.Autores = recurso.Autores;
-  this.Fecha_Publicacion = recurso.Fecha_Publicacion;
+  this.FechaPublicacion = recurso.FechaPublicacion;
+  this.Archivo = recurso.Archivo;
   this.Resumen = recurso.Resumen;
   this.Idioma =  recurso.Idioma;
-  this.Numero_Paginas = recurso.Numero_Paginas;
-  this.Archivo = recurso.Archivo;
-
+  this.NumeroPaginas = recurso.NumeroPaginas;
+  this.IDInvestigador = recurso.IDInvestigador;
 };
 
 Recurso.create = (newRecurso, result) => {
-  sql.query("INSERT INTO recurso SET ?", newRecurso, (err, res) => {
+  sql.query("INSERT INTO Recurso SET ?", newRecurso, (err, res) => {
     if (err) {
       console.log("Error al crear Recurso: ", err);
       result(err, null);
@@ -27,7 +27,7 @@ Recurso.create = (newRecurso, result) => {
 };
 
 Recurso.findById = (id, result) => {
-  sql.query(`SELECT * FROM recurso WHERE ID_Recurso = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM Recurso WHERE IDRecurso = ${id}`, (err, res) => {
     if (err) {
       console.log("Error al buscar Recurso: ", err);
       result(err, null);
@@ -59,8 +59,8 @@ Recurso.getAll = result => {
 
 Recurso.updateById = (id, recurso, result) => {
   sql.query(
-    "UPDATE recurso SET Titulo = ?, Tipo_documento = ?, Autores = ?, Fecha_Publicacion = ?, Resumen = ?, Idioma = ?, Numero_Paginas = ?, Archivo = ? WHERE ID_Recurso = ?",
-    [recurso.Titulo, recurso.Tipo_documento, recurso.Autores, recurso.Fecha_Publicacion, recurso.Resumen, recurso.Idioma, recurso.Numero_Paginas, recurso.Archivo, id],
+    "UPDATE Recurso SET Titulo = ?, TipoRecurso = ?, Autores = ?, FechaPublicacion = ?, Archivo = ?, Resumen = ?, Idioma = ?, NumeroPaginas = ?, IDInvestigador = ? WHERE IDRecurso = ?",
+    [recurso.Titulo, recurso.TipoRecurso, recurso.Autores, recurso.FechaPublicacion, recurso.Archivo, recurso.Resumen, recurso.Idioma, recurso.NumeroPaginas, recurso.IDInvestigador, id],
     (err, res) => {
       if (err) {
         console.log("Error al actualizar Recurso: ", err);
@@ -81,7 +81,7 @@ Recurso.updateById = (id, recurso, result) => {
 
 
 Recurso.remove = (id, result) => {
-  sql.query("DELETE FROM recurso WHERE ID_Recurso = ?", id, (err, res) => {
+  sql.query("DELETE FROM Recuso WHERE IDRecurso = ?", id, (err, res) => {
     if (err) {
       console.log("Error al eliminar Recurso: ", err);
       result(null, err);

@@ -1,5 +1,4 @@
   <div id="container_list">
-    <q>
     <div *ngFor="let recurso of recursos" id="container_father">
       <p>{{ recurso.Titulo }} - {{ recurso.Autores }}</p>
       <button (click)="editarRecurso(recurso)">Editar</button>
@@ -20,7 +19,6 @@
         <button (click)="recursoSeleccionado = null">Cancelar</button>
       </form>
     </div>
-  </q>
 </div>
   
   

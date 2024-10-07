@@ -2,17 +2,19 @@ const sql = require("../config/db.config.js");
 
 // Constructor del modelo Ventas
 const Solicitud = function(solicitud) {
-  this.ID_Solicitud = solicitud.ID_Solicitud;
-  this.ID_Usuario = solicitud.ID_Usuario;
-  this.ID_Recurso = solicitud.ID_Recurso;
+  this.IDSolicitud = solicitud.IDSolicitud;
+  this.IDUsuario = solicitud.IDUsuario;
+  this.IDRecurso = solicitud.IDRecurso
+  this.IDRevisor = solicitud.IDRevisor;
   this.Fecha_Solicitud = solicitud.Fecha_Solicitud;
   this.Motivo_Solicitud = solicitud.Motivo_Solicitud;
   this.Estado = solicitud.Estado;
-  this.Comentarios = solicitud.Comentarios;
+  this.FechaEntrega = solicitud.FechaEntrega;
+  this.ComentariosAdicionales = solicitud.ComentariosAdicionales;
 };
 
 Solicitud.create = (newSolicitud, result) => {
-  sql.query("INSERT INTO solicitud_recurso SET ?", newSolicitud, (err, res) => {
+  sql.query("INSERT INTO Solicitud SET ?", newSolicitud, (err, res) => {
     if (err) {
       console.error("Error al crear la Solicitud:", err);
       result(err, null);
@@ -23,7 +25,7 @@ Solicitud.create = (newSolicitud, result) => {
 };
 
 Solicitud.getAll = result => {
-  sql.query("SELECT * FROM solicitud_recurso", (err, res) => {
+  sql.query("SELECT * FROM Solicitud", (err, res) => {
     if (err) {
       console.log("Error al recuperar Solicitud : ", err);
       result(null, err);
@@ -36,7 +38,7 @@ Solicitud.getAll = result => {
 };
 
 Solicitud.findById = (id, result) => {
-  sql.query(`SELECT * FROM solicitud_recurso WHERE ID_Solicitud = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM Solicitud WHERE IDSolicitud = ${id}`, (err, res) => {
     if (err) {
       console.error("Error al obtener la Solicitud con ID:", id, err);
       result(err, null);
@@ -52,8 +54,8 @@ Solicitud.findById = (id, result) => {
 
 Solicitud.updateById = (id, solicitud, result) => {
   sql.query(
-    "UPDATE solicitud_recurso SET ID_Solicitud = ?, ID_Usuario = ?, ID_Recurso = ?, Fecha_Solicitud = ?, Motivo_Solicitud = ?, Estado = ?, Comentraios = ? WHERE ID_Solicitud = ?",
-    [solicitud.ID_Solicitud, solicitud.ID_Usuario, solicitud-ID_Recurso, solicitud.Fecha_Solicitud, solicitud.Motivo_Solicitud, solicitud.Estado, solicitud.Comentarios, id],
+    "UPDATE Solicitud SET IDSolicitud = ?, ID_Usuario = ?, ID_Recurso = ?, Fecha_Solicitud = ?, Motivo_Solicitud = ?, Estado = ?, Comentraios = ? WHERE IDSolicitud = ?",
+    [solicitud.IDSolicitud, solicitud.ID_Usuario, solicitud-ID_Recurso, solicitud.Fecha_Solicitud, solicitud.Motivo_Solicitud, solicitud.Estado, solicitud.Comentarios, id],
     (err, res) => {
       if (err) {
         console.error("Error al actualizar la Solicitud con ID:", id, err);
@@ -70,7 +72,7 @@ Solicitud.updateById = (id, solicitud, result) => {
 };
 
 Solicitud.remove = (id, result) => {
-  sql.query("DELETE FROM solicitud_recurso WHERE ID_Solicitud = ?", id, (err, res) => {
+  sql.query("DELETE FROM Solicitud WHERE IDSolicitud = ?", id, (err, res) => {
     if (err) {
       console.error("Error al eliminar la Solicitud con ID:", id, err);
       result(err, null);

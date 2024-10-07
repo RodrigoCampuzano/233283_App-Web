@@ -9,5 +9,5 @@ module.exports = app => {
   router.put("/:id", solicitud.update);
   router.delete("/:id", solicitud.delete);
 
-  app.use('/api/Solicitud_Recurso', router);
+  app.use('/api/Solicitud', router);
 };

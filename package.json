@@ -1,12 +1,14 @@
 {
   "name": "gest-recurses",
   "version": "0.0.0",
+  "homepage": "https://RodrigoCampuzano.github.io/233283_App-Web/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "deploy": "npm run build && gh-pages -d dist/gest-recurses ",
     "serve:ssr:Gest-Recurses": "node dist/gest-recurses/server/server.mjs"
   },
   "private": true,
@@ -24,6 +26,7 @@
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.2",
     "express": "^4.18.2",
+    "gh-pages": "^6.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

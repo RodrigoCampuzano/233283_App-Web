@@ -9,15 +9,16 @@ exports.create = (req, res) => {
   }
 
   const recurso = new Recurso({
-    ID_Recurso: req.body.ID_Recurso,
+    IDRecurso: req.body.IDRecurso,
     Titulo: req.body.Titulo,
-    Tipo_documento: req.body.Tipo_documento,
+    TipoRecurso: req.body.TipoRecurso,
     Autores: req.body.Autores,
-    Fecha_Publicacion: req.body.Fecha_Publicacion,
+    FechaPublicacion: req.body.FechaPublicacion,
+    Archivo: req.body.Archivo,
     Resumen: req.body.Resumen,
     Idioma:  req.body.Idioma,
-    Numero_Paginas: req.body.Numero_Paginas,
-    Archivo: req.body.Archivo,
+    NumeroPaginas: req.body.NumeroPaginas,
+    IDInvestigador: req.body.IDInvestigador
   });
 
   Recurso.create(recurso, (err, data) => {
