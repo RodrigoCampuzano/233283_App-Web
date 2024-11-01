@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SolicitudService } from '../../services/solicitud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-solicitud-form',
@@ -11,7 +12,7 @@ export class SolicitudFormComponent implements OnInit{
   
   solicitudForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private solicitudService: SolicitudService) { 
+  constructor(private fb: FormBuilder, private solicitudService: SolicitudService, private router: Router) { 
     
     this.solicitudForm = this.fb.group({
       IDInvestigador: ['1', Validators.required],
@@ -30,6 +31,10 @@ export class SolicitudFormComponent implements OnInit{
   }
 
   ngOnInit(): void {}
+
+  submitBtnCancel(){
+    this.router.navigate(['Investigador/Solicitudes'])
+  }
 
   onSubmit() {
     if (this.solicitudForm.valid) {

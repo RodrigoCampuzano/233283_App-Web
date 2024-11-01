@@ -20,7 +20,6 @@ Recurso.create = (newRecurso, result) => {
       result(err, null);
       return;
     }
-
     console.log("Recurso creado: ", { id: res.insertId, ...newRecurso });
     result(null, { id: res.insertId, ...newRecurso });
   });

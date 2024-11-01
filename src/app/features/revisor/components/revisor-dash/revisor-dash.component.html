@@ -1,0 +1,26 @@
+<div>
+    <div id="header_inv">
+        <button id="btn_account"></button>
+        <h1 id="tittle">Gest_Recurses</h1>
+        <button type="button" id="btn_solicitud">Peticiones de Solicitud</button>
+    </div>
+</div>
+<div id="contianer_dash-inv">
+    <div id="container_inv"> 
+        <div id="top_container_inv">
+            <h1 id="tittle_recurses">Solicitudes en Revision</h1>
+        </div>   
+        <div id="card_recurso">
+            <div id="container_header-card">
+                <h1 id="title_text">Titulo Archivo</h1>
+                <button id="btn_editar" type="button" (click)="submitVerBtn()">⋮</button>
+                <div *ngIf="valor_button">
+                    <div id="container_btn">
+                        <button id="btn_denegar">Denegada</button>
+                        <button id="btn_aprobar">Aprobada</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

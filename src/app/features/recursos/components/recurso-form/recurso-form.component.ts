@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RecursoService } from '../../services/recurso.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recurso-form',
@@ -11,7 +12,7 @@ export class RecursoFormComponent implements OnInit{
   
   recurseForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private recursoService: RecursoService) { 
+  constructor(private fb: FormBuilder, private recursoService: RecursoService, private router: Router) { 
     
     this.recurseForm = this.fb.group({
       Titulo: ['', Validators.required],
@@ -21,8 +22,7 @@ export class RecursoFormComponent implements OnInit{
       Resumen: [''],
       Idioma: ['', Validators.required],
       NumeroPaginas: ['', Validators.required],
-      Archivo: ['', Validators.required],
-      IDInvestigador: ['1', Validators.required]
+      Archivo: ['', Validators.required]
     });
   }
 
@@ -30,6 +30,10 @@ export class RecursoFormComponent implements OnInit{
 
   clearField(field: string) {
     this.recurseForm.get(field)?.reset();
+  }
+
+  submitBtnCacnelar(){
+    this.router.navigate(['Investigador/Recursos'])
   }
 
   onSubmit() {

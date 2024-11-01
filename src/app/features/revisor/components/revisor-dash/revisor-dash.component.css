@@ -1,0 +1,134 @@
+/*DIV*/
+
+#contianer_dash-inv{
+    display: flex;
+}
+
+#header_inv {
+    height: 10vh;
+    padding: 0px 10px 0px 10px; 
+    background-color: #A4BFEB; 
+    display: flex; 
+    align-items: center;
+}
+
+
+#container_inv{
+    height: 90vh;
+    width: 100vw;
+    background-color: #5D5D5D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#card_recurso{
+    height: 40%;
+    width: 30%;
+    border: solid black 2px;
+    background-color: white;
+}
+
+#top_container_inv{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+#container_header-card{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;  
+}
+
+#container_btn{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    border-radius: 10px;
+    height: 55px;
+    width: 90px;
+    position:absolute;
+    right: 25px;
+    top: 25px;
+    background-color: grey;
+}
+
+/*TEXT*/
+
+#tittle{
+    font-size: 45px;
+    width: 100vw;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#tittle_recurses{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    flex: 1;
+}
+
+#title_text{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+
+/*BTN*/
+
+#btn_account{
+    background-color: #4B8BBE;
+    height: 50px;
+    width: 55px;
+    border-radius: 60px;
+    cursor:pointer;
+}
+
+#btn_solicitud{
+    background-color: #4B8BBE;
+    height: 45px;
+    width: 240px;
+    border-radius: 40px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#btn_editar{
+    position: absolute;
+    top: 10px;                  
+    right: 10px;                
+    background-color: transparent;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+}
+
+#btn_denegar{
+    border-radius: 10px;
+    border: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+#btn_denegar:hover{
+    background-color: red;
+}
+
+#btn_aprobar{
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#btn_aprobar:hover{
+    background-color: green;
+}

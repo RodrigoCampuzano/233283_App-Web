@@ -1,9 +1,172 @@
-#container_list{
-    margin: 20px;
-    width: 90%;
-    height: 400px;
+body.body{
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*DIV*/
+#container_body{
+    width: 100%;
+    max-width: 400px;
+}
+
+#container_form{
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+#title_form{
+    background-color: #607d8b;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    height: 20%;
+}
+
+#title_form-text {
+    margin: 0;
+}
+
+#container_form-inputs{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    
+    gap: 10px;
+    margin-top: 10px;
 }
+
+
+/*TEXT*/
+
+#title_form-text{
+    font-size: 30px;
+}
+    
+
+/*BTN*/
+
+#btnRevisor{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #b0bec5;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+}
+#btn_titulo:focus{
+    border-color: #42a5f5;
+    box-shadow: 0px 0px 5px rgba(66, 165, 245, 0.5);
+}
+
+#btnFecha{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #b0bec5;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+}
+#btnFecha:focus{
+    border-color: #42a5f5;
+    box-shadow: 0px 0px 5px rgba(66, 165, 245, 0.5);
+}
+
+#textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #b0bec5;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+    resize: none;
+    height: 60px;
+}
+#textarea:focus{
+    border-color: #0386f2;
+    box-shadow: 0px 0px 5px rgba(19, 149, 255, 0.5);
+}
+
+#btnEstado{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #b0bec5;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+}
+#btnEstado:focus{
+    border-color: #42a5f5;
+    box-shadow: 0px 0px 5px rgba(66, 165, 245, 0.5);
+}
+
+#btnFecha-entrega{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #b0bec5;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+}
+#btnFecha-entrega:focus{
+    border-color: #42a5f5;
+    box-shadow: 0px 0px 5px rgba(66, 165, 245, 0.5);
+}
+
+#textareaComentario{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #b0bec5;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+    resize: none;
+}
+#textareaComentario:focus{
+    border-color: #42a5f5;
+    box-shadow: 0px 0px 5px rgba(66, 165, 245, 0.5);
+}
+
+#btn_send{
+    background-color: #42a5f5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#btn_send:hover {
+    background-color: rgb(46, 230, 46);
+}
+
+#btn_cancel{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#btn_cancel:hover{
+    background-color: rgb(46, 230, 46);
+}
+

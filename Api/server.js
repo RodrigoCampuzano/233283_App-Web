@@ -24,7 +24,7 @@ app.get('/api/data', (req, res) => {
   res.json({ message: 'API data response' });
   });
 
-require('./app/routes/Recurso.routes')(app);
+require('./app/routes/Recurso.routes')(app)
 require('./app/routes/Solicitud.routes')(app)
 require('./app/routes/Revisor.routes')(app)
 require('./app/routes/Investigador.routes')(app)

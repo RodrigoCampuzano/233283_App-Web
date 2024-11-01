@@ -8,13 +8,15 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecursosDashComponent } from './components/recursos-dash/recursos-dash.component';
 
 
 
 @NgModule({
   declarations: [
     RecursoListComponent,
-    RecursoFormComponent
+    RecursoFormComponent,
+    RecursosDashComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     RecursoFormComponent,
-    RecursoListComponent
+    RecursoListComponent,
+    RecursosDashComponent
   ]
 })
 export class RecursosModule { }

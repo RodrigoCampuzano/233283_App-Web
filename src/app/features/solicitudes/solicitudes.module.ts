@@ -8,12 +8,15 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SolicitudDashComponent } from './components/solicitud-dash/solicitud-dash.component';
+
 
 
 @NgModule({
   declarations: [
     SolicitudListComponent,
-    SolicitudFormComponent
+    SolicitudFormComponent,
+    SolicitudDashComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     SolicitudFormComponent,
-    SolicitudListComponent
+    SolicitudListComponent,
+    SolicitudDashComponent
   ]
 })
 export class SolicitudesModule { }

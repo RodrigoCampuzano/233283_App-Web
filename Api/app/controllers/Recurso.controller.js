@@ -8,13 +8,15 @@ exports.create = (req, res) => {
     return;
   }
 
+  const archivoRuta = req.file ? req.file.path : null;
+
   const recurso = new Recurso({
     IDRecurso: req.body.IDRecurso,
     Titulo: req.body.Titulo,
     TipoRecurso: req.body.TipoRecurso,
     Autores: req.body.Autores,
     FechaPublicacion: req.body.FechaPublicacion,
-    Archivo: req.body.Archivo,
+    Archivo: archivoRuta,
     Resumen: req.body.Resumen,
     Idioma:  req.body.Idioma,
     NumeroPaginas: req.body.NumeroPaginas,

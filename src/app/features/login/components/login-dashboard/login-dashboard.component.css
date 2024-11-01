@@ -1,0 +1,17 @@
+#inputs_login{
+    border: solid 2px black;
+    height: 300px;
+    width: 200px;
+    margin-top: 60px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#cotainer_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

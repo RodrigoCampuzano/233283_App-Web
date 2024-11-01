@@ -1,13 +1,23 @@
-<form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()">
-  <div id="container_list">
-    <input formControlName="IDInvestigador" value="1" placeholder="IDInvestigador">
-    <input formControlName="IDRecurso" value="4" placeholder="IDRecurso">
-    <input formControlName="IDRevisor" value="1" placeholder="IDRevisor">
-    <input formControlName="FechaSolicitud" type="date" max="today">
-    <textarea formControlName="MotivoSolicitud" placeholder="Motivo de laSolicitud"></textarea>
-    <input formControlName="Estado" placeholder="Estado">
-    <input formControlName="FechaEntrega" placeholder="Fecha de Entrega">
-    <input formControlName="ComentariosAdicionales" placeholder="Comentarios">  
-    <button type="submit">Enviar</button>
-  </div>
-</form>
+<body class="body">
+  <form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()">
+    <div id="container_body">
+      <div id="container_form">
+        <div id="title_form">
+          <h1 id="title_form-text">Formulario Solicitud</h1>
+        </div>
+        <div id="container_form-inputs">
+          <input formControlName="IDInvestigador" value="1" placeholder="IDInvestigador">
+          <input formControlName="IDRecurso" value="4" placeholder="IDRecurso">
+          <input id="btnRevisor" formControlName="IDRevisor" value="1" placeholder="IDRevisor">
+          <input id="btnFecha" formControlName="FechaSolicitud" type="date" max="2024-12-31">
+          <textarea id="textarea" formControlName="MotivoSolicitud" placeholder="Motivo de laSolicitud"></textarea>
+          <input id="btnEstado" formControlName="Estado" placeholder="Estado">
+          <input id="btnFecha-entrega" formControlName="FechaEntrega" placeholder="Fecha de Entrega">
+          <textarea id="textareaComentario" formControlName="ComentariosAdicionales" placeholder="Comentarios"></textarea>  
+          <button id="btn_send" type="submit">Enviar</button>
+          <button id="btn_cancel" type="button" (click)="submitBtnCancel()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
