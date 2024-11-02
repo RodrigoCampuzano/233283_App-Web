@@ -1,0 +1,29 @@
+<div>
+    <div id="header_inv">
+        <button id="btn_account" (click)="submitCerrarSesion()"></button>
+        <h1 id="tittle">Gest_Recurses</h1>
+        <button type="button" (click)="submitSolicitud()" id="btn_solicitud">Solicitudes</button>
+        <button type="button" (click)="submitCrearRecursos()" id="btn_recurso">Crear Recurso</button>
+    </div>
+</div>
+<div id="contianer_dash-inv">
+    <div id="container_inv"> 
+        <div id="top_container_inv">
+            <h1 id="tittle_recurses">Mis Recursos</h1>
+        </div>   
+        <div *ngFor="let recurso of recursos" class="recurso-card">
+            <div id="card_recurso">
+              <h3>{{ recurso.Titulo }}</h3>
+              <p><strong>Tipo:</strong> {{ recurso.TipoRecurso }}</p>
+              <p><strong>Autores:</strong> {{ recurso.Autores }}</p>
+              <p><strong>Fecha de Publicación:</strong> {{ recurso.FechaPublicacion | date: 'yyyy-MM-dd'  }}</p>
+              <p><strong>Resumen:</strong> {{ recurso.Resumen }}</p>
+              <p><strong>Idioma:</strong> {{ recurso.Idioma }}</p>
+              <p><strong>Número de Páginas:</strong> {{ recurso.NumeroPaginas }}</p>
+              <a [href]="recurso.archivo" download="{{ formatTitulo(recurso.Titulo) }}.pdf">
+                <button type="button">Descargar Archivo</button>
+              </a>
+            </div>              
+        </div>        
+    </div>
+</div>

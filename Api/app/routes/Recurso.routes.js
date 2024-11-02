@@ -14,7 +14,19 @@ module.exports = app => {
   },
   });
 
-  const upload = multer({ storage: storage });
+  const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+      const filetypes = /pdf/;
+      const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+      const mimetype = filetypes.test(file.mimetype);
+  
+      if (mimetype && extname) {
+        return cb(null, true);
+      }
+      cb("Error: El archivo debe ser un PDF.");
+    }
+  });
 
   router.post("/", upload.single("archivo"), recurso.create);
   router.get("/", recurso.findAll);

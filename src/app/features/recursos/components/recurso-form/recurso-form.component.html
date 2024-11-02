@@ -18,7 +18,7 @@
           <textarea id="textarea" formControlName="Resumen" placeholder="Resumen"></textarea>
           <input id="btnIdioma" formControlName="Idioma" placeholder="Idioma">
           <input id="btnNum" type="number" formControlName="NumeroPaginas" placeholder="Numero_Paginas">
-          <input id="btnArchivo" formControlName="Archivo" placeholder="Archivo">
+          <input id="btnArchivo" formControlName="archivo" type="file" (change)="onFileSelected($event)" placeholder="Archivo">
           <button id="btn_send" type="submit">Enviar</button>
           <button id="btn_cancel" type="button" (click)="submitBtnCacnelar()" >Cancelar</button>
         </div>

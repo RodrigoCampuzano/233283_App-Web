@@ -1,0 +1,29 @@
+<div>
+    <div id="header_inv">
+        <button id="btn_account"></button>
+        <h1 id="tittle">Gest_Recurses</h1>
+        <button type="button" id="btn_solicitud" (click)="submitRevision()">Solicitudes en Revision</button>
+    </div>
+</div>
+<div id="contianer_dash-inv">
+    <div id="container_inv"> 
+          <div class="status-card" (click)="verModal('Solicitudes Aprovadas')">
+            <div class="status-text">Aprovadas</div>
+            <img class="image" src="aprovado.png">
+          </div>         
+          <div class="status-card" (click)="verModal('Solicitudes Denegadas')">
+            <div class="status-text">Denegadas</div>
+            <img class="image" src="denegado.png">
+          </div> 
+          <div class="status-card" (click)="verModal('Solicitudes pendientes')">
+            <div class="status-text">Pendientes</div>
+            <img class="image" src="pendiente.png">
+          </div>
+          <div *ngIf="ModalAbierta" class="modal-overlay" (click)="cerrarModal()">
+            <div class="modal-content">
+              <h2>{{ Titulo }}</h2>
+              <button (click)="cerrarModal()">Cerrar</button>
+            </div>
+          </div>
+    </div>
+</div>

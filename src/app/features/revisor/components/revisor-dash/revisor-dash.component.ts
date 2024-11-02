@@ -14,7 +14,15 @@ export class RevisorDashComponent {
 
   }
 
+  submitCerrarSesion(){
+    this.router.navigate(['Login'])
+  }
+
   submitVerBtn(){
     this.valor_button = !this.valor_button;
+  }
+
+  submitPeticiones(){
+    this.router.navigate(['Revisor/Peticiones'])
   }
 }

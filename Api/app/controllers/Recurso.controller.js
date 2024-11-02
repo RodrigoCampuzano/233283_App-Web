@@ -24,12 +24,12 @@ exports.create = (req, res) => {
   });
 
   Recurso.create(recurso, (err, data) => {
-    if (err)
+    if (err) {
+      console.error("Error al crear el recurso:", err); 
       res.status(500).send({
-        message:
-          err.message || "Error al crear el Recurso."
+        message: err.message || "Error al crear el Recurso."
       });
-    else res.send(data);
+    } else res.send(data);
   });
 };
 

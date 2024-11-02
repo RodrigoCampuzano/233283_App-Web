@@ -6,17 +6,17 @@
           <h1 id="title_form-text">Formulario Solicitud</h1>
         </div>
         <div id="container_form-inputs">
-          <input formControlName="IDInvestigador" value="1" placeholder="IDInvestigador">
-          <input formControlName="IDRecurso" value="4" placeholder="IDRecurso">
-          <input id="btnRevisor" formControlName="IDRevisor" value="1" placeholder="IDRevisor">
+          <select formControlName="IDRecurso">
+            <option *ngFor="let recurso of recursos" [value]="recurso.IDRecurso">{{ recurso.Titulo }}</option>
+          </select>
+          <select formControlName="IDRevisor">
+            <option *ngFor="let revisor of revisores" [value]="revisor.id">{{ revisor.nombre }}</option>
+          </select>                   
           <input id="btnFecha" formControlName="FechaSolicitud" type="date" max="2024-12-31">
-          <textarea id="textarea" formControlName="MotivoSolicitud" placeholder="Motivo de laSolicitud"></textarea>
-          <input id="btnEstado" formControlName="Estado" placeholder="Estado">
-          <input id="btnFecha-entrega" formControlName="FechaEntrega" placeholder="Fecha de Entrega">
-          <textarea id="textareaComentario" formControlName="ComentariosAdicionales" placeholder="Comentarios"></textarea>  
+          <textarea id="textarea" formControlName="MotivoSolicitud" placeholder="Motivo de la Solicitud"></textarea>
           <button id="btn_send" type="submit">Enviar</button>
           <button id="btn_cancel" type="button" (click)="submitBtnCancel()">Cancelar</button>
-        </div>
+        </div>      
       </div>
     </div>
   </form>

@@ -1,11 +1,12 @@
 export interface Solicitud {
-    IDSolicitud: number;
+    
+	IDSolicitud: number;
 	IDInvestigador: number;
 	IDRecurso: number;
 	IDRevisor: number;
-	FechaSolicitud: Date | string;
+	FechaSolicitud: string;
 	MotivoSolicitud: string;
-	Estado: string | null;
-	FechaEntrega: Date | null
-    ComentariosAdicionales: string | null;
+	Estado: string;
+	FechaEntrega: string;
+    ComentariosAdicionales: string;
 }

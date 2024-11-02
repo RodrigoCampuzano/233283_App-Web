@@ -1,53 +1,194 @@
+/*CLASS*/
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.input-text {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 15px;
+}
+
+.pendiente {
+    color: orange;
+    font-weight: bold;
+}
+
+.aprobado {
+    color: green;
+    font-weight: bold;
+}
+
+.denegado {
+    color: red;
+    font-weight: bold;
+}
+
+.card-header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn-modificar, .btn-eliminar {
+    background-color: #4B8BBE;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-modificar:hover {
+    background-color: #3A6FA0;
+}
+
+.btn-eliminar {
+    background-color: #E74C3C;
+}
+
+.btn-eliminar:hover {
+    background-color: #C0392B;
+}
+
+
 /*DIV*/
 
-#contianer_dash-inv{
+#contianer_dash-inv {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+    width: 100%;
 }
+
 
 #header_inv {
     height: 10vh;
-    padding: 0px 10px 0px 10px; 
-    background-color: #A4BFEB; 
-    display: flex; 
+    padding: 0px 10px 0 20px;
+    background-color: #ffffff;
+    display: flex;
     align-items: center;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    margin: auto;
 }
 
 
-#container_inv{
-    height: 90vh;
-    width: 100vw;
-    background-color: #5D5D5D;
+#container_inv {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 70%;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-#card_recurso{
-    height: 40%;
-    width: 30%;
-    border: solid black 2px;
-}
-
-#top_container_inv{
-    width: 100vw;
+#card_recurso {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 10px 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#top_container_inv {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 /*TEXT*/
 
-#tittle{
-    font-size: 45px;
-    width: 100vw;
-    text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
+#tittle {
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 30%;
+    color: #333;
+    font-family: Arial, sans-serif;
 }
 
-#tittle_recurses{
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
+#tittle_recurses {
+    font-size: 35px;
+    font-weight: bold;
+    color: #333;
+    font-family: Arial, sans-serif;
     text-align: center;
-    flex: 1;
+    margin-bottom: 20px;
 }
 
 
@@ -55,28 +196,44 @@
 
 #btn_account{
     background-color: #4B8BBE;
-    height: 50px;
-    width: 50px;
+    color: #ffffff;
+    border: none;
     border-radius: 60px;
-    cursor:pointer;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #btn_solicitud{
     background-color: #4B8BBE;
-    height: 45px;
-    width: 120px;
-    border-radius: 40px;
-    font-size: 15px;
+    color: #ffffff;
+    border: none;
+    border-radius: 60px;
+    padding: 12px 20px;
+    margin-left: 16%;
+    margin-right: 1%;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#btn_recurso{
+#btn_solicitud_recurso {
     background-color: #4B8BBE;
-    margin-top: 10px;
-    margin-right: 10px;
-    height: 45px;
-    width: 110px;
-    border-radius: 40px;
-    font-size: 15px;
+    color: #ffffff;
+    border: none;
+    border-radius: 60px;
+    padding: 12px 20px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#btn_account:hover,
+#btn_solicitud:hover,
+#btn_solicitud_recurso:hover {
+    background-color: #3A6FA0;
 }

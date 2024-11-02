@@ -35,7 +35,7 @@ export class SolicitudListComponent implements OnInit {
   editarSolicitudes(solicitud: Solicitud) {
     this.solicitudSeleccionado = { ...solicitud };
   }
-  
+  /*
   eliminarSolicitudes(id: number) {
     this.solicitudService.deleteSilicitudid(id).subscribe(
       () => {
@@ -45,8 +45,8 @@ export class SolicitudListComponent implements OnInit {
         console.error('Error al eliminar el recurso', error);
       }
     );
-  }
-
+  }*/
+/*
   actualizarSolicitudes() {
     if (this.solicitudSeleccionado) {
       this.solicitudSeleccionado.FechaSolicitud = new Date(this.solicitudSeleccionado.FechaSolicitud).toISOString().split('T')[0];
@@ -63,6 +63,6 @@ export class SolicitudListComponent implements OnInit {
         );
     }
   }
-  
+  */
   
 }

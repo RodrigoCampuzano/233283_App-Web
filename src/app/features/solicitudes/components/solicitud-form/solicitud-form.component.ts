@@ -2,57 +2,110 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SolicitudService } from '../../services/solicitud.service';
 import { Router } from '@angular/router';
+import { Recurso } from '../../models/recurso';
+import { Revisor } from '../../models/revisor';
+import { Solicitud } from '../../models/solicitud';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-solicitud-form',
   templateUrl: './solicitud-form.component.html',
-  styleUrl: './solicitud-form.component.css'
+  styleUrls: ['./solicitud-form.component.css']
 })
-export class SolicitudFormComponent implements OnInit{
+export class SolicitudFormComponent implements OnInit {
   
   solicitudForm: FormGroup;
+  recursos: Recurso[] = []; 
+  revisores: Revisor[] = []; 
 
-  constructor(private fb: FormBuilder, private solicitudService: SolicitudService, private router: Router) { 
-    
+  constructor(private fb: FormBuilder, private recursoService: SolicitudService, private router: Router) {
     this.solicitudForm = this.fb.group({
-      IDInvestigador: ['1', Validators.required],
+      IDInvestigador: ['', Validators.required],
       IDRecurso: ['', Validators.required],
-      IDRevisor: ['1', Validators.required],
+      IDRevisor: ['', Validators.required],
       FechaSolicitud: ['', Validators.required],
       MotivoSolicitud: ['', Validators.required],
-      Estado: ['Pendiente'],
-      FechaEntrega: [''],
-      ComentariosAdicionales: [''],
+      Estado: ['Pendiente'], // Corrige 'Pendeinte' a 'Pendiente'
     });
   }
 
-  clearField(field: string) {
-    this.solicitudForm.get(field)?.reset();
+  ngOnInit() {
+    this.loadRecursos();
+    this.loadRevisores();
+
+    const idInvestigador = localStorage.getItem('userId'); 
+    if (idInvestigador) {
+      this.solicitudForm.patchValue({ IDInvestigador: idInvestigador });
+    }
   }
 
-  ngOnInit(): void {}
+  loadRecursos() {
+    this.recursoService.getRecursos().subscribe(
+      (data: Recurso[]) => {
+        this.recursos = data;
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error al cargar recursos:', error);
+      }
+    );
+  }
 
-  submitBtnCancel(){
-    this.router.navigate(['Investigador/Solicitudes'])
+  loadRevisores() {
+    this.recursoService.getRevisores().subscribe(
+      (data: Revisor[]) => {
+        console.log('Revisores cargados:', data);
+        this.revisores = data.filter(revisor => revisor.rol === 1);
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error al cargar revisores:', error);
+        if (error.status === 404) {
+          alert('No se encontraron revisores.');
+        } else {
+          alert('Ocurrió un error al cargar revisores: ' + error.message);
+        }
+      }
+    );
+  }
+  
+  submitBtnCancel() {
+    this.router.navigate(['Investigador/Solicitudes']);
   }
 
   onSubmit() {
     if (this.solicitudForm.valid) {
-      const recursoData = this.solicitudForm.value;
+      const solicitudData: Solicitud = this.solicitudForm.value;
   
-      this.solicitudService.createSolicitud(recursoData)
-        .subscribe(
-          response => {
-            console.log('Recurso guardado con éxito', response);
-          },
-          error => {
-            console.log(recursoData);
-            
-            console.error('Error al guardar el recurso', error);
-          }
-        );
+      // Asegúrate de que la fecha esté en el formato correcto y no sea null
+      if (solicitudData.FechaSolicitud) {
+        const fecha = new Date(solicitudData.FechaSolicitud);
+        if (!isNaN(fecha.getTime())) { // Verifica si la fecha es válida
+          solicitudData.FechaSolicitud = fecha.toISOString().slice(0, 10); // Formato YYYY-MM-DD
+        } else {
+          console.error('Fecha no válida:', solicitudData.FechaSolicitud);
+          alert('Por favor, selecciona una fecha válida.');
+          return; // Evita enviar el formulario si la fecha es inválida
+        }
+      } else {
+        console.error('Fecha de solicitud no proporcionada');
+        alert('Por favor selecciona una fecha de solicitud.');
+        return; // Evita enviar el formulario si no hay fecha
+      }
+  
+      // Llama al servicio para crear la solicitud
+      this.recursoService.createSolicitud(solicitudData).subscribe(
+        response => {
+          console.log('Solicitud guardada con éxito', response);
+          this.router.navigate(['Investigador/Solicitudes']);
+        },
+        error => {
+          console.error('Error al guardar la solicitud', error);
+          alert('Ocurrió un error al guardar la solicitud. Intenta de nuevo.');
+        }
+      );
     } else {
       console.error('Formulario no válido', this.solicitudForm.errors);
-    }
+      alert('Por favor completa todos los campos requeridos.');
+    }  
   }
+  
 }
