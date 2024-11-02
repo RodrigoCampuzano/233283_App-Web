@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RevisorListComponent } from './components/revisor-list/revisor-list.component';
 import { RevisorDashComponent } from './components/revisor-dash/revisor-dash.component';
 import { RevisorPeticionesComponent } from './components/revisor-peticiones/revisor-peticiones.component';
 
@@ -8,7 +7,6 @@ import { RevisorPeticionesComponent } from './components/revisor-peticiones/revi
 
 @NgModule({
   declarations: [
-    RevisorListComponent,
     RevisorDashComponent,
     RevisorPeticionesComponent
   ],
@@ -16,8 +14,8 @@ import { RevisorPeticionesComponent } from './components/revisor-peticiones/revi
     CommonModule
   ],
   exports: [
-    RevisorListComponent,
-    RevisorDashComponent
+    RevisorDashComponent,
+    RevisorPeticionesComponent
   ]
 })
 export class RevisorModule { }

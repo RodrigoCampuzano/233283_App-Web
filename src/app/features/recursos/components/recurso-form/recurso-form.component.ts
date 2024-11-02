@@ -45,15 +45,11 @@ export class RecursoFormComponent implements OnInit {
   onSubmit() {
     if (this.recurseForm.valid) {
       const recursoData = new FormData();
-
-      // Agrega todos los campos excepto el archivo
       Object.keys(this.recurseForm.controls).forEach(key => {
         if (key !== 'archivo') {
           recursoData.append(key, this.recurseForm.get(key)?.value);
         }
       });
-
-      // Agrega el archivo
       if (this.selectedFile) {
         recursoData.append('archivo', this.selectedFile, this.selectedFile.name);
       }
@@ -62,6 +58,7 @@ export class RecursoFormComponent implements OnInit {
         .subscribe(
           response => {
             console.log('Recurso guardado con éxito', response);
+            this.router.navigate(['Investigador/Recursos'])
           },
           error => {
             console.error('Datos del recurso:', recursoData);

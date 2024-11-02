@@ -17,10 +17,12 @@ export class SolicitudDashComponent implements OnInit {
   constructor(private router: Router, private solicitudService: SolicitudService){ }
 
   ngOnInit(): void {
-    this.solicitudService.getSolicitud().subscribe(data =>{
-      this.solicitudes = data;
-    })
+    const userId = localStorage.getItem('userId'); 
+    this.solicitudService.getSolicitud().subscribe(data => {
+      this.solicitudes = data.filter(solicitud => solicitud.IDInvestigador === Number(userId));
+    });
   }
+  
 
   submitRecursos(){
     this.router.navigate(['Investigador/Recursos'])
@@ -29,11 +31,6 @@ export class SolicitudDashComponent implements OnInit {
   submitCrearSolicitud(){
     this.router.navigate(['Investigador/CrearSolicitud'])
     
-  }
-
-  modificarSolicitud(solicitud: Solicitud) {
-    this.solicitudService.updateSolicitud(solicitud.IDSolicitud, solicitud)
-    this.router.navigate(['Solicitud/Actualizar', solicitud]);
   }
 
   openModal(solicitud: Solicitud) {
@@ -48,16 +45,21 @@ export class SolicitudDashComponent implements OnInit {
 
   actualizarMotivo() {
     if (this.selectedSolicitud != null) {
-        this.solicitudService.updateSolicitud(this.selectedSolicitud.IDSolicitud, this.selectedSolicitud).subscribe(() => {
-            const index = this.solicitudes.findIndex(s => s.IDSolicitud === this.selectedSolicitud!.IDSolicitud);
-            if (index !== -1) {
-                this.solicitudes[index].MotivoSolicitud = this.selectedSolicitud!.MotivoSolicitud;
-            }
-            this.closeModal();
-            console.log('Motivo de la solicitud actualizado');
-        });
-    }
+      this.selectedSolicitud.FechaSolicitud = this.selectedSolicitud.FechaSolicitud 
+        ? new Date(this.selectedSolicitud.FechaSolicitud).toISOString().split('T')[0] : '';
+  
+      this.solicitudService.updateSolicitud(this.selectedSolicitud.IDSolicitud, this.selectedSolicitud).subscribe(() => {
+        const index = this.solicitudes.findIndex(s => s.IDSolicitud === this.selectedSolicitud!.IDSolicitud);
+        if (index !== -1) {
+          this.solicitudes[index].MotivoSolicitud = this.selectedSolicitud!.MotivoSolicitud;
+        }
+        this.closeModal();
+        console.log('Motivo de la solicitud actualizado');
+      });
+    } 
   }
+  
+  
 
   eliminarSolicitud(solicitud: Solicitud) {
     if (confirm('¿Estás seguro de que deseas eliminar esta solicitud?')) {
@@ -66,6 +68,10 @@ export class SolicitudDashComponent implements OnInit {
         console.log('Solicitud eliminada');
       });
     }
+  }
+
+  submitCerrarSesion(){
+    this.router.navigate(['/Login'])
   }
 
 }

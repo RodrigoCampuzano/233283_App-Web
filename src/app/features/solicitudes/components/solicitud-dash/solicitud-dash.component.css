@@ -16,18 +16,15 @@
     background-color: #fefefe;
     padding: 20px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 300px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
-.close {
-    float: right;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.input-text {
+#motivo{
     width: 100%;
     padding: 8px;
     margin-top: 8px;
@@ -49,23 +46,17 @@
     z-index: 1000;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.close {
-    float: right;
-    font-size: 24px;
-    cursor: pointer;
-}
-
 button {
-    margin-top: 15px;
+    margin-top: 10px;
+    background-color: #4B8BBE;
+    color: #ffffff;
+    border: none;
+    border-radius: 60px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .pendiente {
@@ -83,7 +74,7 @@ button {
     font-weight: bold;
 }
 
-.card-header {
+#card-header {
     display: flex;
     justify-content: flex-end;
     width: 100%;

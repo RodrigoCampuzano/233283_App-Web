@@ -14,4 +14,14 @@ export class InvestigadorService {
   getRecursosByUserId(userId: number): Observable<Investigador[]> {
     return this.http.get<Investigador[]>(`${this.apiUrl}?userId=${userId}`);
   }
+
+  deleteRecursoId(id: number): Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${id}`)
+  }
+
+  updateSolicitud(id: number, recurso: Investigador): Observable<Investigador> { 
+    return this.http.put<Investigador>(`${this.apiUrl}/${id}`, recurso); 
+  }
+
+
 }

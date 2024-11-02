@@ -25,31 +25,33 @@ export class SolicitudFormComponent implements OnInit {
       IDRevisor: ['', Validators.required],
       FechaSolicitud: ['', Validators.required],
       MotivoSolicitud: ['', Validators.required],
-      Estado: ['Pendiente'], // Corrige 'Pendeinte' a 'Pendiente'
+      Estado: ['Pendiente'],
     });
   }
 
   ngOnInit() {
     this.loadRecursos();
     this.loadRevisores();
-
+  
     const idInvestigador = localStorage.getItem('userId'); 
     if (idInvestigador) {
       this.solicitudForm.patchValue({ IDInvestigador: idInvestigador });
     }
   }
-
+  
   loadRecursos() {
+    const idInvestigador = Number(localStorage.getItem('userId')); // Asegúrate de que sea un número
     this.recursoService.getRecursos().subscribe(
       (data: Recurso[]) => {
-        this.recursos = data;
+        // Filtrar los recursos por IDInvestigador
+        this.recursos = data.filter(recurso => recurso.IDInvestigador === idInvestigador);
       },
       (error: HttpErrorResponse) => {
         console.error('Error al cargar recursos:', error);
       }
     );
   }
-
+  
   loadRevisores() {
     this.recursoService.getRevisores().subscribe(
       (data: Revisor[]) => {
@@ -74,24 +76,21 @@ export class SolicitudFormComponent implements OnInit {
   onSubmit() {
     if (this.solicitudForm.valid) {
       const solicitudData: Solicitud = this.solicitudForm.value;
-  
-      // Asegúrate de que la fecha esté en el formato correcto y no sea null
       if (solicitudData.FechaSolicitud) {
         const fecha = new Date(solicitudData.FechaSolicitud);
-        if (!isNaN(fecha.getTime())) { // Verifica si la fecha es válida
-          solicitudData.FechaSolicitud = fecha.toISOString().slice(0, 10); // Formato YYYY-MM-DD
+        if (!isNaN(fecha.getTime())) {
+          solicitudData.FechaSolicitud = fecha.toISOString().slice(0, 10);
         } else {
           console.error('Fecha no válida:', solicitudData.FechaSolicitud);
           alert('Por favor, selecciona una fecha válida.');
-          return; // Evita enviar el formulario si la fecha es inválida
+          return; 
         }
       } else {
         console.error('Fecha de solicitud no proporcionada');
         alert('Por favor selecciona una fecha de solicitud.');
-        return; // Evita enviar el formulario si no hay fecha
+        return;
       }
   
-      // Llama al servicio para crear la solicitud
       this.recursoService.createSolicitud(solicitudData).subscribe(
         response => {
           console.log('Solicitud guardada con éxito', response);

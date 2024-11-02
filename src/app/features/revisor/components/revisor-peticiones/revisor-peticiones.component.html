@@ -1,29 +1,43 @@
 <div>
-    <div id="header_inv">
-        <button id="btn_account"></button>
-        <h1 id="tittle">Gest_Recurses</h1>
-        <button type="button" id="btn_solicitud" (click)="submitRevision()">Solicitudes en Revision</button>
-    </div>
+  <div id="header_inv">
+    <button id="btn_account"></button>
+    <h1 id="title">Gestión de Recursos</h1>
+    <button type="button" id="btn_solicitud" (click)="submitRevision()">Solicitudes en Revisión</button>
+  </div>
 </div>
-<div id="contianer_dash-inv">
-    <div id="container_inv"> 
-          <div class="status-card" (click)="verModal('Solicitudes Aprovadas')">
-            <div class="status-text">Aprovadas</div>
-            <img class="image" src="aprovado.png">
-          </div>         
-          <div class="status-card" (click)="verModal('Solicitudes Denegadas')">
-            <div class="status-text">Denegadas</div>
-            <img class="image" src="denegado.png">
-          </div> 
-          <div class="status-card" (click)="verModal('Solicitudes pendientes')">
-            <div class="status-text">Pendientes</div>
-            <img class="image" src="pendiente.png">
-          </div>
-          <div *ngIf="ModalAbierta" class="modal-overlay" (click)="cerrarModal()">
-            <div class="modal-content">
-              <h2>{{ Titulo }}</h2>
-              <button (click)="cerrarModal()">Cerrar</button>
-            </div>
-          </div>
+<div id="container_dash-inv">
+  <div id="container_inv">
+    <div class="status-card" (click)="verModalAprovada()">
+      <div class="status-text">Aprobadas</div>
+      <div *ngIf="ModalAprovada" class="modal-overlay">
+        <div class="modal-content">
+          <h2>Solicitudes Aprobadas</h2>
+          <button (click)="cerrarModalAprovada()">Cerrar</button>
+        </div>
+      </div>
+      <img class="image" src="aprovado.png" alt="Aprobado">
     </div>
+    
+    <div class="status-card" (click)="verModalDenegada()">
+      <div class="status-text">Denegadas</div>
+      <div *ngIf="ModalDenegada" class="modal-overlay">
+        <div class="modal-content">
+          <h2>Solicitudes Denegadas</h2>
+          <button (click)="cerrarModalDenegada()">Cerrar</button>
+        </div>
+      </div>
+      <img class="image" src="denegado.png" alt="Denegado">
+    </div>
+    
+    <div class="status-card" (click)="verModalPendiente()">
+      <div class="status-text">Pendientes</div>
+      <div *ngIf="ModalPendiente" class="modal-overlay">
+        <div class="modal-content">
+          <h2>Solicitudes Pendientes</h2>
+          <button (click)="cerrarModalPendiente()">Cerrar</button>
+        </div>
+      </div>
+      <img class="image" src="pendiente.png" alt="Pendiente">
+    </div>
+  </div>
 </div>

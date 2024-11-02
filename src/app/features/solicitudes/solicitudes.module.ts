@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SolicitudListComponent } from './components/solicitud-list/solicitud-list.component';
 import { SolicitudFormComponent } from './components/solicitud-form/solicitud-form.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -14,7 +13,6 @@ import { SolicitudDashComponent } from './components/solicitud-dash/solicitud-da
 
 @NgModule({
   declarations: [
-    SolicitudListComponent,
     SolicitudFormComponent,
     SolicitudDashComponent
   ],
@@ -29,7 +27,6 @@ import { SolicitudDashComponent } from './components/solicitud-dash/solicitud-da
   ],
   exports: [
     SolicitudFormComponent,
-    SolicitudListComponent,
     SolicitudDashComponent
   ]
 })

@@ -10,6 +10,7 @@ import { RecursosModule } from './features/recursos/recursos.module';
 import { InvestigadorModule } from './features/investigador/investigador.module';
 import { RevisorModule } from './features/revisor/revisor.module';
 
+
 @NgModule({
   declarations: [
     AppComponent

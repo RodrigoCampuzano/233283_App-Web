@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecursoListComponent } from './components/recurso-list/recurso-list.component';
 import { RecursoFormComponent } from './components/recurso-form/recurso-form.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -13,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    RecursoListComponent,
     RecursoFormComponent,
   ],
   imports: [
@@ -26,8 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [
-    RecursoFormComponent,
-    RecursoListComponent,
+    RecursoFormComponent
   ]
 })
 export class RecursosModule { }
