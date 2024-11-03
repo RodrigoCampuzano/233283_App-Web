@@ -18,7 +18,7 @@
                     <button (click)="openModal(solicitud)" class="btn-modificar">Modificar</button>
                     <button (click)="eliminarSolicitud(solicitud)" class="btn-eliminar">Eliminar</button>
                 </div>
-                <h3 [ngClass]="{'pendiente': solicitud.Estado === 'Pendiente', 'aprobado': solicitud.Estado === 'Aprobado', 'denegado': solicitud.Estado === 'Denegado'}">
+                <h3 [ngClass]="{'pendiente': solicitud.Estado === 'Pendiente', 'aprobado': solicitud.Estado === 'Aprobada', 'denegado': solicitud.Estado === 'Denegado'}">
                     {{ solicitud.Estado }}
                 </h3>
                 <p><strong>Motivo de la Solicitud: </strong>{{ solicitud.MotivoSolicitud }}</p>

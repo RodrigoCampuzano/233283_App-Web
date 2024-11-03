@@ -40,10 +40,9 @@ export class SolicitudFormComponent implements OnInit {
   }
   
   loadRecursos() {
-    const idInvestigador = Number(localStorage.getItem('userId')); // Asegúrate de que sea un número
+    const idInvestigador = Number(localStorage.getItem('userId')); 
     this.recursoService.getRecursos().subscribe(
       (data: Recurso[]) => {
-        // Filtrar los recursos por IDInvestigador
         this.recursos = data.filter(recurso => recurso.IDInvestigador === idInvestigador);
       },
       (error: HttpErrorResponse) => {

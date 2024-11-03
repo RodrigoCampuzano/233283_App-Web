@@ -6,17 +6,26 @@
     </div>
 </div>
 <div id="contianer_dash-inv">
-    <div id="container_inv"> 
+    <div id="container_inv">
         <div id="top_container_inv">
             <h1 id="tittle_recurses">Solicitudes en Revision</h1>
-        </div>   
-        <div id="card_recurso">
-            <div id="container_header-card">
-                <h1 id="title_text">Titulo Archivo</h1>
-                <div id="container_btn">
-                    <button id="btn_denegar">Denegada</button>
-                    <button id="btn_aprobar">Aprobada</button>
-                </div>
+        </div>
+        <div *ngFor="let solicitud of solicitudes" class="recurso-card">
+            <div id="card_recurso">
+                <p>{{ solicitud.Titulo }}</p>
+                <p><strong>Motivo de la Solicitud: </strong>{{ solicitud.MotivoSolicitud }}</p>
+                <p><strong>Tipo de Recurso: </strong>{{ solicitud.TipoRecurso }}</p>
+                <p><strong>Resumen del Documento: </strong>{{ solicitud.Resumen }}</p>
+                <p><strong>Idioma: </strong>{{ solicitud.Idioma }}</p>
+                <p><strong>Número de Páginas: </strong>{{ solicitud.NumeroPaginas }}</p>
+                <textarea id="textarea" [(ngModel)]="solicitud.ComentariosAdicionales" placeholder="Comentarios adicionales..."></textarea> <br>
+                <a [href]="solicitud.Archivo" download="{{ formatTitulo(solicitud.Titulo) }}.pdf">
+                    <button id="btn_descargar" type="button">Descargar Archivo</button>
+                </a>
+            </div>
+            <div id="container_btn">
+                <button id="btn_denegar" (click)="denegarSolicitud(solicitud)">Denegada</button>
+                <button id="btn_aprobar" (click)="aprobarSolicitud(solicitud)">Aprobada</button>
             </div>
         </div>
     </div>

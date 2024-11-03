@@ -15,7 +15,6 @@ exports.register = async (req, res) => {
     
     const hashedContrasena = bcrypt.hashSync(Contrasena, 8);
 
-    // Envuelve db.query en una promesa
     const query = 'INSERT INTO usuario (Nombre, Apellido, Correo, AreaEspecializacion, Institucion, Rol, Contrasena) VALUES (?, ?, ?, ?, ?, ?, ?)';
     const result = await new Promise((resolve, reject) => {
       db.query(query, [Nombre, Apellido, Correo, AreaEspecializacion, Institucion, Rol, hashedContrasena], (err, result) => {

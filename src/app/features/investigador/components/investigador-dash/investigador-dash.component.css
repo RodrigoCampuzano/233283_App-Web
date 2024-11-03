@@ -3,7 +3,7 @@
 #contianer_dash-inv {
     display: flex;
     justify-content: center;
-    min-height: 90vh; /* Cambiado de height a min-height para que crezca */
+    min-height: 90vh; 
 }
 
 #header_inv {
@@ -29,19 +29,6 @@
     border-radius: 8px;
     background-color: #f5f5f5;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#card_recurso {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 15px;
-    width: 280px; /* Ajusta el ancho de cada tarjeta */
-    background-color: #ffffff;
-    border-radius: 6px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    border: #333 solid 2px;
-    text-align: left;
 }
 
 #card_recurso {

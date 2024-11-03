@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Solicitud } from '../models/solicitud';
-import { Revisor } from '../models/revisor';
-import { Recurso } from '../models/recurso';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,23 +14,23 @@ export class SolicitudService {
   constructor(private http: HttpClient) { }
 
   getSolicitud(): Observable<Solicitud[]> {
-    return this.http.get<Solicitud[]>(`${this.apiUrl}Solicitud`); // Asegúrate de que esta URL sea correcta
+    return this.http.get<Solicitud[]>(`${this.apiUrl}Solicitud`); 
   }
 
   getSolicitudid(id: number): Observable<Solicitud> {
     return this.http.get<Solicitud>(`${this.apiUrl}Solicitud/${id}`);
   }
 
-  createSolicitud(recurso: Solicitud): Observable<Solicitud> { // Cambia `any` por `Solicitud` si es apropiado
+  createSolicitud(recurso: Solicitud): Observable<Solicitud> { 
     return this.http.post<Solicitud>(`${this.apiUrl}Solicitud`, recurso);
   }
 
-  updateSolicitud(id: number, solicitud: Solicitud): Observable<Solicitud> { // Cambia `any` por `Solicitud`
-    return this.http.put<Solicitud>(`${this.apiUrl}Solicitud/${id}`, solicitud); // Asegúrate de que haya una `/` antes del id
+  updateSolicitud(id: number, solicitud: Solicitud): Observable<Solicitud> { 
+    return this.http.put<Solicitud>(`${this.apiUrl}Solicitud/${id}`, solicitud); 
   }
 
-  deleteSolicitudid(id: number): Observable<void> { // Corrige el nombre del método
-    return this.http.delete<void>(`${this.apiUrl}Solicitud/${id}`); // Asegúrate de que haya una `/` antes del id
+  deleteSolicitudid(id: number): Observable<void> { 
+    return this.http.delete<void>(`${this.apiUrl}Solicitud/${id}`); 
   }
 
   getRecursos(): Observable<any[]> {

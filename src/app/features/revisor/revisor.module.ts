@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RevisorDashComponent } from './components/revisor-dash/revisor-dash.component';
 import { RevisorPeticionesComponent } from './components/revisor-peticiones/revisor-peticiones.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,9 @@ import { RevisorPeticionesComponent } from './components/revisor-peticiones/revi
     RevisorPeticionesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+    
   ],
   exports: [
     RevisorDashComponent,

@@ -88,4 +88,43 @@ Solicitud.remove = (id, result) => {
   });
 };
 
+Solicitud.findByRevisorId = (idRevisor, result) => {
+  const query = `
+    SELECT 
+      Solicitud.IDSolicitud,
+      Solicitud.IDInvestigador,
+      Solicitud.IDRecurso,
+      Solicitud.IDRevisor,
+      Solicitud.FechaSolicitud,
+      Solicitud.MotivoSolicitud,
+      Solicitud.Estado,
+      Solicitud.FechaEntrega,
+      Solicitud.ComentariosAdicionales,
+      Recurso.Titulo,
+      Recurso.TipoRecurso,
+      Recurso.Autores,
+      Recurso.FechaPublicacion,
+      Recurso.Archivo,
+      Recurso.Resumen,
+      Recurso.Idioma,
+      Recurso.NumeroPaginas
+    FROM 
+      Solicitud
+    LEFT JOIN 
+      Recurso ON Solicitud.IDRecurso = Recurso.IDRecurso
+    WHERE 
+      Solicitud.IDRevisor = ?
+  `;
+
+  sql.query(query, [idRevisor], (err, res) => {
+    if (err) {
+      console.error("Error al obtener solicitudes por IDRevisor:", err);
+      result(err, null);
+      return;
+    }
+    result(null, res);
+  });
+};
+
+
 module.exports = Solicitud;

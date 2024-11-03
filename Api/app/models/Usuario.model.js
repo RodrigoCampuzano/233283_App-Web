@@ -68,7 +68,6 @@ Usuario.updateById = (id, usuario, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // No se encontró el Usuario con el ID especificado
         result({ kind: "not_found" }, null);
         return;
       }

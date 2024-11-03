@@ -8,6 +8,8 @@ module.exports = app => {
   router.get("/:id", solicitud.findOne);
   router.put("/:id", solicitud.update);
   router.delete("/:id", solicitud.delete);
+  router.get("/revisor/:idRevisor", solicitud.findByRevisorId);
+
 
   app.use('/api/Solicitud', router);
 };

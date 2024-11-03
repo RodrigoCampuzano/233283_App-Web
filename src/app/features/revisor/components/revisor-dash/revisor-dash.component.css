@@ -1,10 +1,8 @@
-/*DIV*/
 
-#contianer_dash-inv {
+#contianer_dash-inv{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     height: 90vh;
 }
 
@@ -23,9 +21,11 @@
 
 #container_inv {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
+    flex-wrap: wrap;
+    justify-content: center;
+    position:static;
+    gap: 20px;
+    width: 80%;
     padding: 20px;
     border-radius: 8px;
     background-color: #f5f5f5;
@@ -39,40 +39,7 @@
     width: 100%;
 }
 
-#container_btn {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-#card_recurso {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    margin: 10px 0;
-    width: 100%;
-    background-color: #ffffff;
-    border-radius: 6px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-#card_recurso:hover {
-    background-color: #e0e0e0;
-}
-
-
-/*TEXT*/
-
-#tittle {
-    font-size: 35px;
-    font-weight: bold;
-    color: #333;
-    font-family: Arial, sans-serif;
-}
-
+#tittle,
 #tittle_recurses {
     font-size: 35px;
     font-weight: bold;
@@ -82,33 +49,34 @@
     margin-bottom: 20px;
 }
 
-#title_text {
-    font-size: 25px;
+.recurso-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 15px 0;
+    width: 40%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.recurso-card:hover {
+    background-color: #e0e0e0;
+}
+
+#card_recurso p {
+    font-size: 16px;
     color: #333;
-    font-weight: bold;
-    margin: 0;
+    margin: 5px 0;
     font-family: Arial, sans-serif;
 }
 
-
-/*BTN*/
-
-#btn_account,
-#btn_solicitud {
-    background-color: #4B8BBE;
-    color: #ffffff;
-    border: none;
-    border-radius: 60px;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#btn_account:hover,
-#btn_solicitud:hover {
-    background-color: #3A6FA0;
+#container_btn {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 #btn_denegar,
@@ -130,4 +98,45 @@
 
 #btn_aprobar:hover { background-color: #388E3C; }
 
+#btn_account,
+#btn_solicitud {
+    background-color: #4B8BBE;
+    color: #ffffff;
+    border: none;
+    border-radius: 60px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+#btn_account:hover,
+#btn_solicitud:hover {
+    background-color: #3A6FA0;
+}
+
+#card_recurso p {
+    font-size: 16px;
+    color: #555; 
+    margin: 5px 0; 
+    font-family: Arial, sans-serif;
+    line-height: 1.5; 
+    text-align: left; 
+    font-weight: 500; 
+}
+
+#card_recurso p:first-child {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333; 
+}
+
+#textarea {
+    resize: none;
+    height: 60px;
+}
+#textarea:focus{
+    border-color: #0386f2;
+    box-shadow: 0px 0px 5px rgba(19, 149, 255, 0.5);
+}

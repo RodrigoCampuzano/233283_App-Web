@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Investigador } from '../models/investigador';// Asegúrate de tener la ruta correcta
+import { Investigador } from '../models/investigador';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InvestigadorService {
-  private apiUrl = 'http://localhost:8080/api/Recurso'; // Cambia a la URL de tu API
-
+  private apiUrl = 'http://localhost:8080/api/Recurso'; 
   constructor(private http: HttpClient) { }
 
   getRecursosByUserId(userId: number): Observable<Investigador[]> {
