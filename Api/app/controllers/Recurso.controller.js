@@ -8,13 +8,15 @@ exports.create = (req, res) => {
     return;
   }
 
+  const archivoRuta = req.file ? req.file.path : null;
+
   const recurso = new Recurso({
     IDRecurso: req.body.IDRecurso,
     Titulo: req.body.Titulo,
     TipoRecurso: req.body.TipoRecurso,
     Autores: req.body.Autores,
     FechaPublicacion: req.body.FechaPublicacion,
-    Archivo: req.body.Archivo,
+    Archivo: archivoRuta,
     Resumen: req.body.Resumen,
     Idioma:  req.body.Idioma,
     NumeroPaginas: req.body.NumeroPaginas,
@@ -22,12 +24,12 @@ exports.create = (req, res) => {
   });
 
   Recurso.create(recurso, (err, data) => {
-    if (err)
+    if (err) {
+      console.error("Error al crear el recurso:", err); 
       res.status(500).send({
-        message:
-          err.message || "Error al crear el Recurso."
+        message: err.message || "Error al crear el Recurso."
       });
-    else res.send(data);
+    } else res.send(data);
   });
 };
 

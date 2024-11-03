@@ -1,12 +1,15 @@
 export interface Recurso {
-    ID_Recurso: number;
+
+    IDRecurso: number;
     Titulo: string;
-    Tipo_documento: string;
+    TipoRecurso: string;
     Autores: string;
-    Fecha_Publicacion: string;  
+    FechaPublicacion: string;
+    Archivo: string;
     Resumen: string;
     Idioma: string;
-    Numero_Paginas: number;
-    Archivo: string;
+    NumeroPaginas: number;
+    IDInvestigador: number;
+    
   }
   

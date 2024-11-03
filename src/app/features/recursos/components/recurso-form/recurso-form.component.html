@@ -1,13 +1,28 @@
-<form [formGroup]="recurseForm" (ngSubmit)="onSubmit()">
-  <div id="container_form">
-    <input formControlName="Titulo" placeholder="Título">
-    <input formControlName="Tipo_documento" placeholder="Tipo de Documento">
-    <input formControlName="Autores" placeholder="Autores">
-    <input formControlName="Fecha_Publicacion" placeholder="Fecha de Publicación">
-    <textarea formControlName="Resumen" placeholder="Resumen"></textarea>
-    <input formControlName="Idioma" placeholder="Idioma">
-    <input formControlName="Numero_Paginas" placeholder="Numero_Paginas">
-    <input formControlName="Archivo" placeholder="Archivo">  
-    <button type="submit">Enviar</button>
-  </div>
-</form>
+<body class="body">
+  <form [formGroup]="recurseForm" (ngSubmit)="onSubmit()">
+    <div id="container_body">
+      <div id="container_form">
+        <div id="title_form">
+          <h1 id="title_form-text">Formulario Recurso</h1>
+        </div>
+        <div id="container_form-inputs">
+          <input id="btn_titulo" formControlName="Titulo" placeholder="Título">
+          <select id="select_recurso" formControlName="TipoRecurso">
+            <option value="Artículo">Artículo</option>
+            <option value="Tesis">Tesis</option>
+            <option value="Libro">Libro</option>
+            <option value="Informe">Informe</option>
+          </select>
+          <input id="btnAutor" formControlName="Autores" placeholder="Autores">
+          <input id="btnFecha" formControlName="FechaPublicacion" type="date" max="2024-12-31">
+          <textarea id="textarea" formControlName="Resumen" placeholder="Resumen"></textarea>
+          <input id="btnIdioma" formControlName="Idioma" placeholder="Idioma">
+          <input id="btnNum" type="number" formControlName="NumeroPaginas" placeholder="Numero_Paginas">
+          <input id="btnArchivo" formControlName="archivo" type="file" (change)="onFileSelected($event)" placeholder="Archivo">
+          <button id="btn_send" type="submit">Enviar</button>
+          <button id="btn_cancel" type="button" (click)="submitBtnCacnelar()" >Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>

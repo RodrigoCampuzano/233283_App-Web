@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path'); 
 
 dotenv.config();
 
@@ -23,11 +24,12 @@ app.get("/", (req, res) => {
 app.get('/api/data', (req, res) => {
   res.json({ message: 'API data response' });
   });
+  
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-require('./app/routes/Recurso.routes')(app);
+require('./app/routes/Usuario.routes')(app)
+require('./app/routes/Recurso.routes')(app)
 require('./app/routes/Solicitud.routes')(app)
-require('./app/routes/Revisor.routes')(app)
-require('./app/routes/Investigador.routes')(app)
 
 
 const PORT = process.env.PORT || 8080;

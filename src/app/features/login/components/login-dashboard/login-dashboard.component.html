@@ -1,0 +1,10 @@
+<form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+    <div id="cotainer_login">
+        <div id="inputs_login">
+            <h1>Login</h1>
+            <input formControlName="Correo" placeholder="Correo" type="text">
+            <input formControlName="Contrasena" placeholder="Contraseña" type="password">
+            <button type="submit">Enviar</button>
+        </div>
+    </div>
+</form>

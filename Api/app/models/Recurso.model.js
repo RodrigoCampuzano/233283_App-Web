@@ -20,7 +20,6 @@ Recurso.create = (newRecurso, result) => {
       result(err, null);
       return;
     }
-
     console.log("Recurso creado: ", { id: res.insertId, ...newRecurso });
     result(null, { id: res.insertId, ...newRecurso });
   });
@@ -81,7 +80,7 @@ Recurso.updateById = (id, recurso, result) => {
 
 
 Recurso.remove = (id, result) => {
-  sql.query("DELETE FROM Recuso WHERE IDRecurso = ?", id, (err, res) => {
+  sql.query("DELETE FROM Recurso WHERE IDRecurso = ?", id, (err, res) => {
     if (err) {
       console.log("Error al eliminar Recurso: ", err);
       result(null, err);

@@ -1,0 +1,41 @@
+<div>
+    <div id="header_inv">
+        <button id="btn_account" (click)="submitCerrarSesion()"></button>
+        <h1 id="tittle">Gest_Recurses</h1>
+        <button type="button" (click)="submitRecursos()" id="btn_solicitud">Recursos</button>
+        <button type="button" (click)="submitCrearSolicitud()" id="btn_solicitud_recurso">Crear Solicitud</button>
+    </div>
+</div>
+
+<div id="contianer_dash-inv">
+    <div id="container_inv"> 
+        <div id="top_container_inv">
+            <h1 id="tittle_recurses">Solicitudes</h1>
+        </div>   
+        <div *ngFor="let solicitud of solicitudes">
+            <div id="card_recurso">
+                <div id="card-header">
+                    <button (click)="openModal(solicitud)" class="btn-modificar">Modificar</button>
+                    <button (click)="eliminarSolicitud(solicitud)" class="btn-eliminar">Eliminar</button>
+                </div>
+                <h3 [ngClass]="{'pendiente': solicitud.Estado === 'Pendiente', 'aprobado': solicitud.Estado === 'Aprobada', 'denegado': solicitud.Estado === 'Denegado'}">
+                    {{ solicitud.Estado }}
+                </h3>
+                <p><strong>Motivo de la Solicitud: </strong>{{ solicitud.MotivoSolicitud }}</p>
+                <p><strong>Fecha de Entrega: </strong>{{ solicitud.FechaSolicitud | date: 'yyyy-MM-dd' }}</p>
+                <p><strong>Comentarios: </strong>{{ solicitud.ComentariosAdicionales }}</p>
+                <p><strong>Fecha de Solicitud: </strong>{{ solicitud.FechaEntrega | date: 'yyyy-MM-dd' }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+        <h3>Editar Solicitud</h3>
+        <label>Motivo:</label>
+        <input type="text" id="motivo" [(ngModel)]="selectedSolicitud!.MotivoSolicitud">
+        <button (click)="actualizarMotivo()">Guardar Cambios</button>
+        <button (click)="closeModal()">Cancelar</button>
+    </div>
+</div>

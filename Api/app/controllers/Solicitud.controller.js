@@ -103,3 +103,17 @@ exports.delete = (req, res) => {
     }
   });
 };
+
+exports.findByRevisorId = (req, res) => {
+  const idRevisor = req.params.idRevisor;
+
+  Solicitud.findByRevisorId(idRevisor, (err, data) => {
+    if (err) {
+      res.status(500).send({
+        message: err.message || "Error al recuperar las solicitudes por IDRevisor."
+      });
+    } else {
+      res.send(data);
+    }
+  });
+};
