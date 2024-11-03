@@ -45,4 +45,8 @@ export class LoginDashboardComponent {
       console.log('Formulario inválido', this.LoginForm.errors);
     }
   }
+
+  registro(){
+    this.router.navigate(['Registro'])
+  }
 }

@@ -1,0 +1,19 @@
+<form [formGroup]="RegistroForm" (ngSubmit)="onRegister()">
+    <div id="container_register">
+        <div id="inputs_register">
+            <h1>Registro</h1>
+            <input formControlName="Nombre" placeholder="Nombre" type="text">
+            <input formControlName="Apellido" placeholder="Apellido" type="text">
+            <input formControlName="Correo" placeholder="Correo" type="email">
+            <input formControlName="AreaEspecializacion" placeholder="Área de Especialización" type="text">
+            <input formControlName="Institucion" placeholder="Institución" type="text">
+            <input formControlName="Contrasena" placeholder="Contraseña" type="password">
+            <select formControlName="Rol" name="" id="">
+                <option value="0">Investigador</option>
+                <option value="1">Revisor</option>
+            </select>
+            <button type="submit">Registrar</button>
+            <button (click)="cancelar()">Cancelar</button>
+        </div>
+    </div>
+</form>

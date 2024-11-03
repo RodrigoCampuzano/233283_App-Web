@@ -1,0 +1,18 @@
+<form [formGroup]="ActualizarForm" (ngSubmit)="onUpdate()">
+    <div id="container_update">
+        <div id="inputs_update">
+            <h1>Actualizar Datos</h1>
+            <input formControlName="Nombre" placeholder="Nombre" type="text">
+            <input formControlName="Apellido" placeholder="Apellido" type="text">
+            <input formControlName="Correo" placeholder="Correo" type="email">
+            <input formControlName="AreaEspecializacion" placeholder="Área de Especialización" type="text">
+            <input formControlName="Institucion" placeholder="Institución" type="text">
+            <select formControlName="Rol">
+                <option value="0">Investigador</option>
+                <option value="1">Revisor</option>
+            </select>
+            <button type="submit">Actualizar</button>
+            <button (click)="cancelar()">Cancelar</button>
+        </div>
+    </div>
+</form>

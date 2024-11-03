@@ -6,6 +6,9 @@ module.exports = app => {
   router.post("/register", Usuario.register);
   router.post("/login", Usuario.login);
   router.get("/obtener", Usuario.finAll);
+  router.get("/:id", Usuario.getUsuarioById);
+  router.put("/:id", Usuario.updateUsuario);
+
 
   app.use('/api/Usuario', router);
 };

@@ -38,23 +38,25 @@ Usuario.getAll = () => {
 };
 
 
-
 Usuario.findById = (id, result) => {
-  sql.query(`SELECT * FROM usuario WHERE IDUsuario = ${id}`, (err, res) => {
+  sql.query(`SELECT IDUsuario, Nombre, Apellido, Correo, AreaEspecializacion, Institucion FROM usuario WHERE IDUsuario = ?`, [id], (err, res) => {
     if (err) {
       console.log("Error al encontrar Usuario: ", err);
-      result(err, null);
-      return;
+      result(err, null); // Retorna el error
     }
 
     if (res.length) {
       console.log("Usuario encontrado: ", res[0]);
-      result(null, res[0]);
-      return;
+      result(null, res[0]); // Usa el callback original para retornar el usuario
+      return; // Asegúrate de retornar después de enviar el resultado
     }
+
+    // Si no se encontró el usuario
     result({ kind: "not_found" }, null);
   });
 };
+
+
 
 Usuario.updateById = (id, usuario, result) => {
   sql.query(
@@ -72,8 +74,8 @@ Usuario.updateById = (id, usuario, result) => {
         return;
       }
 
-      console.log("Usuario actualizado: ", { IDUsuario: id, ...Usuario });
-      result(null, { IDUsuario: id, ...Usuario });
+      console.log("Usuario actualizado: ", { IDUsuario: id, ...usuario });
+      result(null, { IDUsuario: id, ...usuario });
     }
   );
 };
@@ -108,6 +110,7 @@ Usuario.removeAll = result => {
     result(null, res);
   });
 };
+
 
 module.exports = Usuario;
 
