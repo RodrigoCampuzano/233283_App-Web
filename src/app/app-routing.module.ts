@@ -7,6 +7,8 @@ import { SolicitudFormComponent } from './features/solicitudes/components/solici
 import { RevisorDashComponent } from './features/revisor/components/revisor-dash/revisor-dash.component';
 import { RevisorPeticionesComponent } from './features/revisor/components/revisor-peticiones/revisor-peticiones.component';
 import { InvestigadorDashComponent } from './features/investigador/components/investigador-dash/investigador-dash.component';
+import { RegistroComponent } from './features/login/components/registro/registro.component';
+import { AccountComponent } from './features/ussuario/components/account/account.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'Investigador/CrearSolicitud', component: SolicitudFormComponent },
   { path: 'Revisor/Dashboard', component: RevisorDashComponent },
   { path: 'Revisor/Peticiones', component: RevisorPeticionesComponent},
+  { path: 'Cuenta', component: AccountComponent},
+  { path: 'Registro', component: RegistroComponent },
   { path: '', redirectTo:'/Login', pathMatch: 'full' },
   { path: '**', redirectTo:'/Login'}
 ];

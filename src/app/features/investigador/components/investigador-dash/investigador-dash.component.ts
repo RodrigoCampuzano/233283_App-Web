@@ -43,6 +43,10 @@ export class InvestigadorDashComponent implements OnInit {
     this.router.navigate(['Investigador/Solicitudes']);
   }
 
+  submitCuenta(){
+    this.router.navigate(['Cuenta']);
+  }
+
   submitCrearRecursos() {
     console.log('Creacion Recurso');
     this.router.navigate(['Investigador/CrearRecurso']);

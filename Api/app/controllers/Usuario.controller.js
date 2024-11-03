@@ -66,9 +66,45 @@ exports.finAll = async (req, res) => {
   }
 };
 
+exports.getUsuarioById = (req, res) => {
+  const userId = req.params.id;
+
+  Usuario.findById(userId, (err, usuario) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        return res.status(404).send({ message: "Usuario no encontrado." });
+      }
+      return res.status(500).send({ message: "Error al recuperar usuario." });
+    }
+
+    res.status(200).send(usuario);
+  });
+};
 
 
+exports.updateUsuario = async (req, res) => {
+  try {
+      const userId = req.params.id;
+      const { Nombre, Apellido, Correo, AreaEspecializacion, Institucion, Rol } = req.body;
 
+      const updatedUsuario = {
+          Nombre,
+          Apellido,
+          Correo,
+          AreaEspecializacion,
+          Institucion
+      };
+
+      const result = await Usuario.updateById(userId, updatedUsuario);
+      if (!result) {
+          return res.status(404).send({ message: "Usuario no encontrado." });
+      }
+      res.status(200).send({ message: "Usuario actualizado exitosamente", usuario: result });
+  } catch (err) {
+      console.error("Error al actualizar usuario:", err);
+      res.status(500).send({ message: "Error al actualizar usuario." });
+  }
+};
 
 
 /*

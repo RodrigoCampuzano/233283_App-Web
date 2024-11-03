@@ -9,6 +9,8 @@ import { LoginModule } from './features/login/login.module';
 import { RecursosModule } from './features/recursos/recursos.module';
 import { InvestigadorModule } from './features/investigador/investigador.module';
 import { RevisorModule } from './features/revisor/revisor.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UssuarioModule } from './features/ussuario/ussuario.module';
 
 
 @NgModule({
@@ -21,8 +23,10 @@ import { RevisorModule } from './features/revisor/revisor.module';
     LoginModule,
     RecursosModule,
     RevisorModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     SolicitudesModule,
+    UssuarioModule,
     HttpClientModule,
 
   ],
